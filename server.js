@@ -30,30 +30,27 @@ app.get('/', (req, res)=>{
   });
 });
 
+
+// USE THIS SET UP to set up USER-ONLY pages
 app.get('/app', (req, res)=>{
   if(req.session.currentUser){
       res.send('the party');
   } else {
-      res.redirect('/sessions/new');
+      res.redirect('/');
   }
 });
 
-app.post('/articles', (req, res)=>{
-  req.body.author = req.session.currentUser.username;
-  Article.create(req.body, (err, createdArticle)=>{
-      res.redirect('/articles');
-  });
-});
+
 
 // SET UP to USE USERS.JS CONTROLLER
 const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
+const categoriesController = require('./controllers/categories.js');
+app.use('/categories', categoriesController);
 
 // WEB SERVER
 app.listen(3000, ()=>{
     console.log('listening...');
 });
-
-// test

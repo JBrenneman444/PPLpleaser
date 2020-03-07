@@ -4,6 +4,7 @@ body {
 
 .container {
     background: white;
+    padding-bottom: 20px;
 }
 
 .navformmargin-right {
@@ -15,12 +16,18 @@ body {
 
 .bigLogo {
     background: blue;
-    height: 300px; /* sets height of DIV */
-    line-height: 300px; /* sets line-height of TEXT */
+    height: 400px; /* sets height of DIV */
+    line-height: 400px; /* sets line-height of TEXT */
     text-align:center;
     color:white;
     font-size:75px;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    /* make text UNSELECTABLE */
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none;
 }
 
 
@@ -31,7 +38,7 @@ body {
     align-content: space-between;
     background: rgb(229, 233, 238);
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
 }
 
 .category-card {
@@ -41,6 +48,25 @@ body {
     text-align: center;
     color: white;
     border: 2px solid blue;
+    margin-bottom:20px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.content-container {
+    background: rgb(229, 233, 238);
+    padding: 20px;
+}
+
+
+.special-submit > input[type=submit] {
+    border: none;            
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent;
 }
 
 input[type=text], input[type=password] {
@@ -75,15 +101,6 @@ input[type=text]:active, input[type=password]:active {
     border: 2px solid rgb(60, 173, 188);
 }
 
-input[type=submit] {
-    border: none;            
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    text-decoration: none;
-    background-color: transparent;
-}
 
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -109,4 +126,10 @@ color: lightslategrey;
 input[type=text], input[type=password] {
     width:125px;
 }
+}
+
+@media (max-width: 767px) {
+    .bigLogo {
+        display:none;
+    }
 }

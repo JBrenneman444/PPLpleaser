@@ -11,16 +11,17 @@ router.post('/', (req, res)=>{
     User.findOne({ username: req.body.username },(err, foundUser) => {
         if( bcrypt.compareSync(req.body.password, foundUser.password) ){
             req.session.currentUser = foundUser;
-            res.redirect('/');
+            res.redirect('back'); // REDIRECTS to CURRENT PAGE
         } else {
-            res.send('wrong password');
+            // do nothing - send error?
+            res.redirect('back'); // REDIRECTS to CURRENT PAGE
         }
     });
 });
 
 router.delete('/', (req, res) => {
     req.session.destroy(()=>{
-        res.redirect('/');
+        res.redirect('back'); // REDIRECTS to CURRENT PAGE
     });
 })
 

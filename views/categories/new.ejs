@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>PPLpleaser</title>
+    <!-- BOOTSTRAP -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <!-- PERSONAL STYLES -->
+    <link href="/css/jakes-styles.css" rel="stylesheet">
+<style>
+    .bigLogo {
+        height: 200px;
+        line-height: 200px;
+    }
+</style>
+</head>
+<body>
+    <div class="container"> <!-- CONTAINER -->
+
+        <div class="bigLogo">
+            PPLpleaser.com
+        </div>
+    
+        <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">PPLpleaser</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <% if(currentUser) { %>
+                <form class="form-inline" action="/sessions?_method=DELETE" method="POST">
+                    <a href="" class="nav-link" onclick="this.closest('form').submit();return false;">Logout</a>
+                </form>
+            <% } else { %>
+                <form class="form-inline my-2 my-lg-0 special-submit" action="/sessions" method="POST" autocomplete="off">
+                    <input class="navformmargin-right" id="username" type="text" name="username" placeholder="username" autocomplete="off"/>
+                    <input class="navformmargin-left" type="password" name="password" placeholder="password" autocomplete="off"/>
+                    <input type="submit" value="Sign In" />
+                </form>
+            <% } %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/new">Register</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">ADD a POLL</button>
+            </form>
+            </div>
+        </nav>
+
+<!-- ============================================================== -->
+<!-- ======================= MAIN CONTENT ========================= -->
+<!-- ============================================================== -->
+
+<div class="content-container"> <!-- CONTENT CONTAINER -->
+    
+    <h1>Add a product to the store:</h1>
+
+    <% if(currentUser) { %>
+        <form action="/store" and method="POST">
+            Name: <input type="text" name="name" /><br/>
+            Image URL: <input type="text" name="img" /><br/>
+            <input type="submit" name="" value="Add NEW PRODUCT"/>
+        </form>   
+    <% } else { %>
+        You must be <a href="javascript:document.getElementById('username').focus()">signed in</a> to add a category.
+    <% } %>
+
+</div> <!-- END of CONTENT CONTAINER -->
+
+    </div> <!-- END of MASTER CONTAINER --> 
+
+    <!-- SCRIPTS -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous">
+    </script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

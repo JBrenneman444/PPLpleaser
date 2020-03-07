@@ -30,8 +30,8 @@
                     <a href="" class="nav-link" onclick="this.closest('form').submit();return false;">Logout</a>
                 </form>
             <% } else { %>
-                <form class="form-inline my-2 my-lg-0" action="/sessions" method="POST" autocomplete="off">
-                    <input class="navformmargin-right" type="text" name="username" placeholder="username" autocomplete="off" autofocus/>
+                <form class="form-inline my-2 my-lg-0 special-submit" action="/sessions" method="POST" autocomplete="off">
+                    <input class="navformmargin-right" type="text" name="username" placeholder="username" autocomplete="off"/>
                     <input class="navformmargin-left" type="password" name="password" placeholder="password" autocomplete="off"/>
                     <input type="submit" value="Sign In" />
 
@@ -41,9 +41,7 @@
                     <a class="nav-link" href="/users/new">Register</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit">ADD a POLL</button>
-            </form>
+                <button class="btn btn-primary my-2 my-sm-0" onclick="window.location.href = '/categories/new'">ADD a POLL</button>
             </div>
         </nav>
 
@@ -153,81 +151,11 @@
 
 </div> <!-- END of CONTENT CONTAINER -->
 
-            
     <% if(currentUser) { %>
         <main>
-                Welcome to the <a href="/">party</a>
+                UPDATE this when we want to link  <a href="/">USER-ONLY content</a>
         </main>
     <% } %>
-
-    <div> <!-- LOREM FILLER TEXT -->
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo labore mollitia, quod animi aliquam tempore. Molestiae nulla, dolores officiis non illum explicabo. Obcaecati quisquam, nihil quod corporis hic in nostrum!
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolores non libero praesentium atque. Illum dolor ab voluptates rem fugit esse architecto aperiam error. Aliquid fugiat voluptatem veritatis quasi voluptatum.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus doloremque numquam magnam eius dicta tempora adipisci voluptates odit iure itaque in tempore a vel autem magni, possimus et vero odio.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo labore mollitia, quod animi aliquam tempore. Molestiae nulla, dolores officiis non illum explicabo. Obcaecati quisquam, nihil quod corporis hic in nostrum!
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolores non libero praesentium atque. Illum dolor ab voluptates rem fugit esse architecto aperiam error. Aliquid fugiat voluptatem veritatis quasi voluptatum.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus doloremque numquam magnam eius dicta tempora adipisci voluptates odit iure itaque in tempore a vel autem magni, possimus et vero odio.
-
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo labore mollitia, quod animi aliquam tempore. Molestiae nulla, dolores officiis non illum explicabo. Obcaecati quisquam, nihil quod corporis hic in nostrum!
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolores non libero praesentium atque. Illum dolor ab voluptates rem fugit esse architecto aperiam error. Aliquid fugiat voluptatem veritatis quasi voluptatum.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus doloremque numquam magnam eius dicta tempora adipisci voluptates odit iure itaque in tempore a vel autem magni, possimus et vero odio.
-
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo labore mollitia, quod animi aliquam tempore. Molestiae nulla, dolores officiis non illum explicabo. Obcaecati quisquam, nihil quod corporis hic in nostrum!
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolores non libero praesentium atque. Illum dolor ab voluptates rem fugit esse architecto aperiam error. Aliquid fugiat voluptatem veritatis quasi voluptatum.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus doloremque numquam magnam eius dicta tempora adipisci voluptates odit iure itaque in tempore a vel autem magni, possimus et vero odio.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo labore mollitia, quod animi aliquam tempore. Molestiae nulla, dolores officiis non illum explicabo. Obcaecati quisquam, nihil quod corporis hic in nostrum!
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolores non libero praesentium atque. Illum dolor ab voluptates rem fugit esse architecto aperiam error. Aliquid fugiat voluptatem veritatis quasi voluptatum.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus doloremque numquam magnam eius dicta tempora adipisci voluptates odit iure itaque in tempore a vel autem magni, possimus et vero odio.
-
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo labore mollitia, quod animi aliquam tempore. Molestiae nulla, dolores officiis non illum explicabo. Obcaecati quisquam, nihil quod corporis hic in nostrum!
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolores non libero praesentium atque. Illum dolor ab voluptates rem fugit esse architecto aperiam error. Aliquid fugiat voluptatem veritatis quasi voluptatum.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus doloremque numquam magnam eius dicta tempora adipisci voluptates odit iure itaque in tempore a vel autem magni, possimus et vero odio.
-
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo labore mollitia, quod animi aliquam tempore. Molestiae nulla, dolores officiis non illum explicabo. Obcaecati quisquam, nihil quod corporis hic in nostrum!
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolores non libero praesentium atque. Illum dolor ab voluptates rem fugit esse architecto aperiam error. Aliquid fugiat voluptatem veritatis quasi voluptatum.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus doloremque numquam magnam eius dicta tempora adipisci voluptates odit iure itaque in tempore a vel autem magni, possimus et vero odio.
-
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo labore mollitia, quod animi aliquam tempore. Molestiae nulla, dolores officiis non illum explicabo. Obcaecati quisquam, nihil quod corporis hic in nostrum!
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolores non libero praesentium atque. Illum dolor ab voluptates rem fugit esse architecto aperiam error. Aliquid fugiat voluptatem veritatis quasi voluptatum.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus doloremque numquam magnam eius dicta tempora adipisci voluptates odit iure itaque in tempore a vel autem magni, possimus et vero odio.
-
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo labore mollitia, quod animi aliquam tempore. Molestiae nulla, dolores officiis non illum explicabo. Obcaecati quisquam, nihil quod corporis hic in nostrum!
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolores non libero praesentium atque. Illum dolor ab voluptates rem fugit esse architecto aperiam error. Aliquid fugiat voluptatem veritatis quasi voluptatum.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus doloremque numquam magnam eius dicta tempora adipisci voluptates odit iure itaque in tempore a vel autem magni, possimus et vero odio.
-
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo labore mollitia, quod animi aliquam tempore. Molestiae nulla, dolores officiis non illum explicabo. Obcaecati quisquam, nihil quod corporis hic in nostrum!
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolores non libero praesentium atque. Illum dolor ab voluptates rem fugit esse architecto aperiam error. Aliquid fugiat voluptatem veritatis quasi voluptatum.
-
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus doloremque numquam magnam eius dicta tempora adipisci voluptates odit iure itaque in tempore a vel autem magni, possimus et vero odio.
-    </div>
 
     </div> <!-- END of MASTER CONTAINER --> 
 
