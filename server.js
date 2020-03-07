@@ -12,6 +12,7 @@ app.use(session({
   saveUninitialized: false
 }));
 app.use(methodOverride('_method'));
+app.use(express.static('public'))
 
 // MONGOOSE
 mongoose.connect("mongodb://localhost:27017/PPLpleaser", {
