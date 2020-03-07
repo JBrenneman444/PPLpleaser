@@ -15,11 +15,11 @@ body {
 
 .bigLogo {
     background: blue;
-    height: 200px; /* sets height of DIV */
-    line-height: 200px; /* sets line-height of TEXT */
+    height: 300px; /* sets height of DIV */
+    line-height: 300px; /* sets line-height of TEXT */
     text-align:center;
     color:white;
-    font-size:50px;
+    font-size:75px;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -29,7 +29,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: space-between;
-    background: darkred;
+    background: rgb(229, 233, 238);
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -37,10 +37,10 @@ body {
 .category-card {
     width: 250px;
     height: 300px;
-    background: rgb(70, 0, 0);
+    background: white;
     text-align: center;
     color: white;
-    border: 1px solid red;
+    border: 2px solid blue;
 }
 
 input[type=text], input[type=password] {
