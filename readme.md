@@ -28,4 +28,3 @@ Heroku Link: __________________________
 - [ ] Set up MVC
 - [ ] Set up Authentication
 - [ ] Deploy on Heroku - make publicly accessible
-# PPLpleaser
