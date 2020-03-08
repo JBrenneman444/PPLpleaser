@@ -51,6 +51,19 @@
 
 <div class="card-container"> <!-- CONTENT CONTAINER -->
 
+    <% for(i=0;i<category.length;i++){ %>
+        <div class='category-card'>
+            <a href="/categories/<%= category[i].id %>">
+                <%= category[i].name %>
+            </a><br>
+            <a href="/categories/<%= category[i].id %>">
+                <img class="category-img" src="<%= category[i].img %>"/>
+            </a>
+            <div class="votes">
+                Votes: <%= category[i].votes %>
+            </div>
+        </div>
+    <% } %>
         <div class='category-card'>
             <a href="#">
                 NAME
@@ -58,6 +71,9 @@
             <a href="#">
                 <img class="category-img" src="https://via.placeholder.com/250/0000FF/808080 ?Text=Digital.com"/>
             </a>
+            <div class="votes">
+                Votes: 3000
+            </div>
         </div>
         <div class='category-card'>
                 <a href="#">

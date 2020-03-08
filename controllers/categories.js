@@ -25,69 +25,6 @@ router.post('/',(req,res)=>{
     });
 });
 
-// INDEX
-router.get('/', (req, res)=>{
-    Category.find({}, (error, allCategories)=>{
-        res.render('index.ejs', {
-            category: allCategories
-        });
-    });
-});
-
-router.get('/seed', async (req, res) => {
-    const newCategories =
-      [
-        {
-            name: {type: String, required: true },
-            description: String,
-            img: String,
-            votes: Number
-        }, {
-            name: {type: String, required: true },
-            description: String,
-            img: String,
-            votes: Number
-        }, {
-            name: {type: String, required: true },
-            description: String,
-            img: String,
-            votes: Number
-        }, {
-            name: {type: String, required: true },
-            description: String,
-            img: String,
-            votes: Number
-        }, {
-            name: {type: String, required: true },
-            description: String,
-            img: String,
-            votes: Number
-        }, {
-            name: {type: String, required: true },
-            description: String,
-            img: String,
-            votes: Number
-        }, {
-            name: {type: String, required: true },
-            description: String,
-            img: String,
-            votes: Number
-        }, {
-            name: {type: String, required: true },
-            description: String,
-            img: String,
-            votes: Number
-        }
-      ]
-  
-    try {
-      const sendCategories = await Category.create(newCategories)
-      res.send(sendCategories)
-    } catch (err) {
-      res.send(err.message)
-    }
-  })
-
 // EDIT
 router.get('/:id/edit', (req, res)=>{
     Category.findById(req.params.id, (err, foundCategory)=>{ //find the log

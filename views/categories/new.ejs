@@ -12,6 +12,10 @@
         height: 200px;
         line-height: 200px;
     }
+
+    .category-forms {
+        margin-bottom: 5px;
+    }
 </style>
 </head>
 <body>
@@ -57,13 +61,13 @@
 
 <div class="content-container"> <!-- CONTENT CONTAINER -->
     
-    <h1>Add a product to the store:</h1>
+    <h1>Add a category:</h1>
 
     <% if(currentUser) { %>
-        <form action="/store" and method="POST">
-            Name: <input type="text" name="name" /><br/>
-            Image URL: <input type="text" name="img" /><br/>
-            <input type="submit" name="" value="Add NEW PRODUCT"/>
+        <form id="add-category" action="/categories" method="POST">
+            Category Name: <input type="text" class="category-forms" name="name" /><br/>
+            Image URL: <input type="text" class="category-forms" name="img" /><br/>
+            <button type="submit" class="btn btn-primary" id="form-submit" form="add-category" value="Submit">Add CATEGORY</button>
         </form>   
     <% } else { %>
         You must be <a href="javascript:document.getElementById('username').focus()">signed in</a> to add a category.

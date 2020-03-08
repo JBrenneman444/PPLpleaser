@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session');
 const methodOverride = require('method-override');
+const Category = require("./models/categories.js");
+
 
 // MIDDLEWARE
 app.use(express.static('public'))
@@ -23,13 +25,61 @@ mongoose.connection.once("open", () => {
   console.log("Mongo CONNECTED!");
 });
 
-// ROUTES
+// INDEX
 app.get('/', (req, res)=>{
-  res.render('index.ejs', {
-      currentUser: req.session.currentUser
+  Category.find({}, (error, allCategories)=>{
+      res.render('index.ejs', {
+          category: allCategories,
+          currentUser: req.session.currentUser
+      });
   });
 });
 
+app.get('/seed', async (req, res) => {
+  const newCategories =
+    [
+      {
+          name: {type: String, required: true },
+          img: String,
+          votes: Number
+      }, {
+          name: {type: String, required: true },
+          img: String,
+          votes: Number
+      }, {
+          name: {type: String, required: true },
+          img: String,
+          votes: Number
+      }, {
+          name: {type: String, required: true },
+          img: String,
+          votes: Number
+      }, {
+          name: {type: String, required: true },
+          img: String,
+          votes: Number
+      }, {
+          name: {type: String, required: true },
+          img: String,
+          votes: Number
+      }, {
+          name: {type: String, required: true },
+          img: String,
+          votes: Number
+      }, {
+          name: {type: String, required: true },
+          img: String,
+          votes: Number
+      }
+    ]
+
+  try {
+    const sendCategories = await Category.create(newCategories)
+    res.send(sendCategories)
+  } catch (err) {
+    res.send(err.message)
+  }
+})
 
 // USE THIS SET UP to set up USER-ONLY pages
 app.get('/app', (req, res)=>{

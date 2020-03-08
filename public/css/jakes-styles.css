@@ -30,6 +30,9 @@ body {
     user-select: none;
 }
 
+.votes {
+    color: blue;
+}
 
 .card-container {
     display:flex;
