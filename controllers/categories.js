@@ -25,7 +25,7 @@ router.post('/',(req,res)=>{
     });
 });
 
-// EDIT -- N O T  D O N E  Y E T  !!
+// EDIT
 router.get('/:id/edit', (req, res)=>{
     Category.findById(req.params.id, (err, foundCategory)=>{ //find the log
         res.render('categories/edit.ejs',
@@ -49,7 +49,7 @@ router.put('/:id/bought', (req, res) => {
 });
 
 
-// UPDATE / PUT Route -- N O T  D O N E  Y E T  !!
+// UPDATE / PUT Route
 router.put('/:id', (req, res)=>{
 if(req.body.img == ''){
     req.body.img = "https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg";
@@ -57,7 +57,7 @@ if(req.body.img == ''){
 // do nothing
 }
     Category.findByIdAndUpdate(req.params.id, req.body, (err, updatedModel)=>{
-      res.redirect(`/store/${req.params.id}`)
+      res.redirect(`/categories/${req.params.id}`)
     });
 });
   
