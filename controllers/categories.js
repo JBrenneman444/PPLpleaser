@@ -74,7 +74,7 @@ router.get('/:id',(req,res)=>{
 // DELETE -- N O T  D O N E  Y E T  !!
 router.delete('/:id', (req, res)=>{
     Category.findByIdAndRemove(req.params.id, (err, data)=>{
-        res.redirect('/store');//redirect back to store
+        res.redirect('/');//redirect back to store
     });
   });  
 
