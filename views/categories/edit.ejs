@@ -7,7 +7,16 @@
     <link href="/css/bootstrap.css" rel="stylesheet">
     <!-- PERSONAL STYLES -->
     <link href="/css/jakes-styles.css" rel="stylesheet">
+<style>
+    .bigLogo {
+        height: 200px;
+        line-height: 200px;
+    }
 
+    .category-forms {
+        margin-bottom: 5px;
+    }
+</style>
 </head>
 <body>
     <div class="container"> <!-- CONTAINER -->
@@ -31,17 +40,18 @@
                 </form>
             <% } else { %>
                 <form class="form-inline my-2 my-lg-0 special-submit" action="/sessions" method="POST" autocomplete="off">
-                    <input class="navformmargin-right" type="text" name="username" placeholder="username" autocomplete="off"/>
+                    <input class="navformmargin-right" id="username" type="text" name="username" placeholder="username" autocomplete="off"/>
                     <input class="navformmargin-left" type="password" name="password" placeholder="password" autocomplete="off"/>
                     <input type="submit" value="Sign In" />
-
                 </form>
             <% } %>
                 <li class="nav-item">
                     <a class="nav-link" href="/users/new">Register</a>
                 </li>
             </ul>
-                <button class="btn btn-primary my-2 my-sm-0" onclick="window.location.href = '/categories/new'">ADD a POLL</button>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">ADD a POLL</button>
+            </form>
             </div>
         </nav>
 
@@ -49,35 +59,28 @@
 <!-- ======================= MAIN CONTENT ========================= -->
 <!-- ============================================================== -->
 
-<div class="card-container"> <!-- CARD CONTAINER -->
-
-    <% for(i=0;i<category.length;i++){ %>
-        <div class='category-card'>
-            <div>
-                <a href="/categories/<%= category[i].id %>">
-                    <%= category[i].name %>
-                </a>
-            </div>
-            <div>
-                <a href="/categories/<%= category[i].id %>">
-                    <img class="category-img" src="<%= category[i].img %>"/>
-                </a>
-            </div>
-            <div class="votes">
-                Leader: <%= category[i].votes %>
-            </div>
-        </div>
-    <% } %>
-        
-
-
-</div> <!-- END of CONTENT CONTAINER -->
+<div class="content-container"> <!-- CONTENT CONTAINER -->
+    
+    <h1>Edit a category:</h1>
 
     <% if(currentUser) { %>
-        <main>
-                UPDATE this when we want to link  <a href="/">USER-ONLY content</a>
-        </main>
+        <form action="/categories/<%=category.id%>?_method=PUT" method="POST">
+
+            Name: <input type="text" name="name" value="<%=category.name%>"/><br/>
+            Image: <input style='width:325px;' type="text" name="img" value="<%=category.img%>"/><br/>
+            <img src=" <%= category.img %> "> <br/>
+            Total Votes: <input type="number" name="votes" value="<%=category.votes%>" min="0"/><br/>
+            <br/>
+            <input type="submit" name="" value="Submit Changes"/>
+        </form>
+    <% } else { %>
+        You must be <a href="javascript:document.getElementById('username').focus()">signed in</a> to edit a category.
     <% } %>
+    <p>
+        <a href="/categories/<%=category.id%>">BACK to PRODUCT</a>
+    </p>
+
+</div> <!-- END of CONTENT CONTAINER -->
 
     </div> <!-- END of MASTER CONTAINER --> 
 

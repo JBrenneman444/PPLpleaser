@@ -49,35 +49,43 @@
 <!-- ======================= MAIN CONTENT ========================= -->
 <!-- ============================================================== -->
 
-<div class="card-container"> <!-- CARD CONTAINER -->
+<div class="content-container">
 
-    <% for(i=0;i<category.length;i++){ %>
+<h1>CATEGORY</h1><a href="/categories/<%= category.id %>/edit">EDIT</a>
+<div class="category-info">
+    <p>Category Title: <%= category.name %></p>
+    <p>Total Votes: <%= category.votes %></p>
+    <p>Current Leader: <%= category.leader %></p>
+</div>
+
+<h3>CONTESTANTS</h3>
+<div class="card-container"> <!-- CONTENT CONTAINER -->
+
         <div class='category-card'>
             <div>
-                <a href="/categories/<%= category[i].id %>">
-                    <%= category[i].name %>
+                <a href="/categories/<%= category.id %>">
+                    <%= category.name %>
                 </a>
             </div>
             <div>
-                <a href="/categories/<%= category[i].id %>">
-                    <img class="category-img" src="<%= category[i].img %>"/>
+                <a href="/categories/<%= category.id %>">
+                    <img class="category-img" src="<%= category.img %>"/>
                 </a>
             </div>
             <div class="votes">
-                Leader: <%= category[i].votes %>
+                Leader: <%= category.votes %>
             </div>
         </div>
-    <% } %>
-        
 
-
-</div> <!-- END of CONTENT CONTAINER -->
+</div> <!-- END of CARD CONTAINER -->
 
     <% if(currentUser) { %>
         <main>
                 UPDATE this when we want to link  <a href="/">USER-ONLY content</a>
         </main>
     <% } %>
+
+</div> <!-- END of CONTENT CONTAINER -->
 
     </div> <!-- END of MASTER CONTAINER --> 
 

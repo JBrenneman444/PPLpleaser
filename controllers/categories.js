@@ -25,19 +25,19 @@ router.post('/',(req,res)=>{
     });
 });
 
-// EDIT
+// EDIT -- N O T  D O N E  Y E T  !!
 router.get('/:id/edit', (req, res)=>{
     Category.findById(req.params.id, (err, foundCategory)=>{ //find the log
-        res.render(
-        'edit.ejs',
+        res.render('categories/edit.ejs',
         {
-          category: foundCategory //pass in found log
+          category: foundCategory,
+          currentUser: req.session.currentUser
         }
       );
     });
   });
 
-// PUT Route for BUY BUTTON
+// PUT Route for BUY BUTTON -- N O T  D O N E  Y E T  !!
 router.put('/:id/bought', (req, res) => {
   Category.findByIdAndUpdate(
     req.params.id,
@@ -49,7 +49,7 @@ router.put('/:id/bought', (req, res) => {
 });
 
 
-// UPDATE / PUT Route
+// UPDATE / PUT Route -- N O T  D O N E  Y E T  !!
 router.put('/:id', (req, res)=>{
 if(req.body.img == ''){
     req.body.img = "https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg";
@@ -63,14 +63,15 @@ if(req.body.img == ''){
   
 // SHOW
 router.get('/:id',(req,res)=>{
-    Category.findById(req.params.id, (err, foundCategory) => { // CALLBACK name don't matter
-        res.render("show.ejs", {
-          category: foundCategory // doesn't matter what you call the KEY TITLE
+    Category.findById(req.params.id, (err, foundCategory) => {
+        res.render("categories/show.ejs", {
+          category: foundCategory,
+          currentUser: req.session.currentUser
         });
       });
 })
 
-// DELETE
+// DELETE -- N O T  D O N E  Y E T  !!
 router.delete('/:id', (req, res)=>{
     Category.findByIdAndRemove(req.params.id, (err, data)=>{
         res.redirect('/store');//redirect back to store

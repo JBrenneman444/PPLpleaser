@@ -56,6 +56,20 @@ body {
     overflow: hidden;
 }
 
+.category-img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    object-position: center;
+    overflow: hidden;
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+}
+
+.category-info {
+    height: 15vh;
+}
+
 .content-container {
     background: rgb(229, 233, 238);
     padding: 20px;
