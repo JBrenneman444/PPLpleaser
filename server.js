@@ -5,14 +5,14 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 
 // MIDDLEWARE
+app.use(express.static('public'))
 app.use(express.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
 app.use(session({
   secret: "feedmeseymour", //some random string
   resave: false,
   saveUninitialized: false
 }));
-app.use(methodOverride('_method'));
-app.use(express.static('public'))
 
 // MONGOOSE
 mongoose.connect("mongodb://localhost:27017/PPLpleaser", {
