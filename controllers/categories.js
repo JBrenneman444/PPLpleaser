@@ -5,11 +5,23 @@ const Category = require("../models/categories.js");
 ///////////////////////////////////////////////
 // Routes:
 
-// NEW
+// NEW-CATEGORY
 router.get('/new', (req, res)=>{
     res.render('categories/new.ejs', {
         currentUser: req.session.currentUser
     });
+});
+
+// NEW-CONTESTANT
+router.get('/:id/new-contestant', (req, res)=>{
+  Category.findById(req.params.id, (err, foundCategory)=>{ //find the log
+      res.render('categories/new-contestant.ejs',
+      {
+        category: foundCategory,
+        currentUser: req.session.currentUser
+      }
+    );
+  });
 });
 
 // CREATE / POST
@@ -38,13 +50,13 @@ router.get('/:id/edit', (req, res)=>{
   });
 
 // PUT Route for BUY BUTTON -- N O T  D O N E  Y E T  !!
-router.put('/:id/bought', (req, res) => {
+router.put('/:id/voted', (req, res) => {
   Category.findByIdAndUpdate(
     req.params.id,
     { $inc: { votes: 1}},
     (err, updatedModel)=>{
       console.log(err)
-    res.redirect(`/store/${req.params.id}`)
+    res.redirect(`/categories/${req.params.id}`)
   });
 });
 
@@ -71,14 +83,11 @@ router.get('/:id',(req,res)=>{
       });
 })
 
-// DELETE -- N O T  D O N E  Y E T  !!
+// DELETE
 router.delete('/:id', (req, res)=>{
     Category.findByIdAndRemove(req.params.id, (err, data)=>{
         res.redirect('/');//redirect back to store
     });
   });  
 
-
-///////////////////////////////////////////////
-// ROUTES
 module.exports = router;

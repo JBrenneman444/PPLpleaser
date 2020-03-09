@@ -32,6 +32,7 @@ body {
 
 .votes {
     color: blue;
+    
 }
 
 .card-container {
@@ -68,6 +69,21 @@ body {
 
 .category-info {
     height: 15vh;
+    margin-top:1rem
+}
+
+.horizontal-container {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    height: 260px;
+    margin-bottom: 40px;
+}
+
+#number1 {
+    margin-right: 20px;
 }
 
 .content-container {
@@ -75,6 +91,9 @@ body {
     padding: 20px;
 }
 
+.show-h1 {
+    margin-bottom: 0;
+}
 
 .special-submit > input[type=submit] {
     border: none;            

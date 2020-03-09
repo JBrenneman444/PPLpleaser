@@ -7,7 +7,16 @@
     <link href="/css/bootstrap.css" rel="stylesheet">
     <!-- PERSONAL STYLES -->
     <link href="/css/jakes-styles.css" rel="stylesheet">
+<style>
+    .bigLogo {
+        height: 200px;
+        line-height: 200px;
+    }
 
+    .category-forms {
+        margin-bottom: 5px;
+    }
+</style>
 </head>
 <body>
     <div class="container"> <!-- CONTAINER -->
@@ -31,17 +40,18 @@
                 </form>
             <% } else { %>
                 <form class="form-inline my-2 my-lg-0 special-submit" action="/sessions" method="POST" autocomplete="off">
-                    <input class="navformmargin-right" type="text" name="username" placeholder="username" autocomplete="off"/>
+                    <input class="navformmargin-right" id="username" type="text" name="username" placeholder="username" autocomplete="off"/>
                     <input class="navformmargin-left" type="password" name="password" placeholder="password" autocomplete="off"/>
                     <input type="submit" value="Sign In" />
-
                 </form>
             <% } %>
                 <li class="nav-item">
                     <a class="nav-link" href="/users/new">Register</a>
                 </li>
             </ul>
-                <button class="btn btn-primary my-2 my-sm-0" onclick="window.location.href = '/categories/new'">ADD a POLL</button>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">ADD a POLL</button>
+            </form>
             </div>
         </nav>
 
@@ -49,56 +59,18 @@
 <!-- ======================= MAIN CONTENT ========================= -->
 <!-- ============================================================== -->
 
-<div class="content-container">
-
-
-<div class="horizontal-container"> <!-- FLEX CONTAINER -->
-    <div id="number1">
-        <h1 class="show-h1"><%= category.name %></h1>
-        <a href="/categories/<%= category.id %>/edit">EDIT</a>
-        <form class="special-delete" action="/categories/<%= category.id %>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE" />
-        </form>
-        <div class="category-info">
-            <p><b>Total Votes:</b> <%= category.votes %></p>
-            <p><b>Current Leader:</b> <%= category.leader %></p>
-        </div>
-    </div>
-
-    <div id="number2">
-        <div class="category-info">
-                <img class="category-img" src="<%= category.img %>"/>
-        </div>
-    </div>
-</div>
-
-<h3>CONTESTANTS</h3>
-<button class="btn btn-primary my-2 my-sm-0" onclick="window.location.href = '/categories/<%= category.id %>/new-contestant'">ADD a CONTESTANT</button>
-<div class="card-container"> <!-- CONTENT CONTAINER -->
-
-        <div class='category-card'>
-            <div>
-                <a href="/categories/<%= category.id %>">
-                    SPICY SWEET CHILI
-                </a>
-
-            </div>
-            <div>
-                <a href="/categories/<%= category.id %>">
-                    <img class="category-img" src="<%= category.img %>"/>
-                </a>
-            </div>
-            <div class="votes">
-                <%= category.votes %>
-            </div>
-        </div>
-
-</div> <!-- END of CARD CONTAINER -->
+<div class="content-container"> <!-- CONTENT CONTAINER -->
+    
+    <h1>Add a contestant:</h1>
 
     <% if(currentUser) { %>
-        <main>
-                UPDATE this when we want to link  <a href="/">USER-ONLY content</a>
-        </main>
+        <form id="add-category" action="/categories" method="POST">
+            Contestant Name: <input type="text" class="category-forms" name="name" /><br/>
+            Image URL: <input type="text" class="category-forms" name="img" /><br/>
+            <button type="submit" class="btn btn-primary" id="form-submit" form="add-category" value="Submit">Add CONTESTANT</button>
+        </form>   
+    <% } else { %>
+        You must be <a href="javascript:document.getElementById('username').focus()">signed in</a> to add a category.
     <% } %>
 
 </div> <!-- END of CONTENT CONTAINER -->
