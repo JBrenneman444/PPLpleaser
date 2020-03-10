@@ -93,6 +93,13 @@
             <div class="card-votes">
                 <%= category.contestants[i].votes %>
             </div>
+        <% if (currentUser) { %>
+            <div class="vote-button">
+                <a href="">VOTE</a>
+            </div>
+        <% } else { %>
+            <!-- do nothing -->
+        <% } %>
         </div>
     <% } %>
 

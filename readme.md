@@ -23,9 +23,11 @@ Heroku Link: __________________________
 - EJS
 
 ## Struggles
-- Having difficulty setting up/referencing/updating my Array of Objects in my schema
+- Having difficulty setting up/referencing/updating my Array of Objects (CONTESTANTS) in my schema (thank you **Aarik** and **Jay** for helping me solve this!)
+-
 
 ## TODO / Unresolved Items
-- [ ] Set up MVC
-- [ ] Set up Authentication
+- [X] Set up MVC
+- [X] Set up Authentication
+- [ ] Set up VOTE Feature / PUT Route
 - [ ] Deploy on Heroku - make publicly accessible
