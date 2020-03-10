@@ -14,6 +14,7 @@ router.get('/new', (req, res)=>{
 
 // CREATE / POST
 router.post('/',(req,res)=>{
+    // first IF
     if(req.body.img == ''){
       req.body.img = "https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg";
     } else {
@@ -38,7 +39,7 @@ router.get('/:id/edit', (req, res)=>{
   });
 
   
-// NEW-CONTESTANT
+// EDIT --- NEW-CONTESTANT
 router.get('/:id/new-contestant', (req, res)=>{
   Category.findById(req.params.id, (err, foundCategory)=>{ //find the log
       res.render('categories/new-contestant.ejs',
@@ -62,19 +63,22 @@ router.put('/:id/voted', (req, res) => {
 });
 
 
-// UPDATE / PUT Route
-router.put('/:id/contestant', (req, res)=>{
-  if(req.body.contestants.img == ''){
-      req.body.contestants.img = "https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg";
-  } else {
-  // do nothing
-  }
-      Category.findByIdAndUpdate(req.params.id, req.body, (err, updatedModel)=>{
+// UPDATE / PUT Route for CONTESTANTS
+router.put('/:id/new-contestant', (req, res)=>{
+
+  // MONGOOSE COMMANDS
+  Category.findByIdAndUpdate(req.params.id, 
+        {
+          $push:
+        {
+          contestants: req.body
+        }
+      }, {new:true}, (err, updatedModel)=>{
         res.redirect(`/categories/${req.params.id}`)
       });
   });
 
-// UPDATE / PUT Route
+// UPDATE / PUT Route for CATEGORIES
 router.put('/:id', (req, res)=>{
 if(req.body.img == ''){
     req.body.img = "https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg";

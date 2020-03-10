@@ -23,6 +23,7 @@ Heroku Link: __________________________
 - EJS
 
 ## Struggles
+- Having difficulty setting up/referencing/updating my Array of Objects in my schema
 
 ## TODO / Unresolved Items
 - [ ] Set up MVC

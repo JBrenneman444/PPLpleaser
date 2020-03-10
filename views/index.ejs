@@ -53,7 +53,7 @@
 
     <% for(i=0;i<category.length;i++){ %>
         <div class='category-card'>
-            <div>
+            <div class="card-name">
                 <a href="/categories/<%= category[i].id %>">
                     <%= category[i].name %>
                 </a>
@@ -63,8 +63,8 @@
                     <img class="category-img" src="<%= category[i].img %>"/>
                 </a>
             </div>
-            <div class="votes">
-                Leader: <%= category[i].votes %>
+            <div class="card-votes">
+                Leader: <%= category[i].leader %>
             </div>
         </div>
     <% } %>
@@ -72,12 +72,6 @@
 
 
 </div> <!-- END of CONTENT CONTAINER -->
-
-    <% if(currentUser) { %>
-        <main>
-                UPDATE this when we want to link  <a href="/">USER-ONLY content</a>
-        </main>
-    <% } %>
 
     </div> <!-- END of MASTER CONTAINER --> 
 

@@ -7,7 +7,12 @@
     <link href="/css/bootstrap.css" rel="stylesheet">
     <!-- PERSONAL STYLES -->
     <link href="/css/jakes-styles.css" rel="stylesheet">
-
+    <style>
+        .bigLogo {
+            height: 200px;
+            line-height: 200px;
+        }
+    </style>
 </head>
 <body>
     <div class="container"> <!-- CONTAINER -->
@@ -54,14 +59,14 @@
 
 <div class="horizontal-container"> <!-- FLEX CONTAINER -->
     <div id="number1">
-        <h1 class="show-h1"><%= category.name %></h1>
+        <h1 class="chill-h1"><%= category.name %></h1>
         <a href="/categories/<%= category.id %>/edit">EDIT</a>
         <form class="special-delete" action="/categories/<%= category.id %>?_method=DELETE" method="POST">
             <input type="submit" value="DELETE" />
         </form>
         <div class="category-info">
-            <p><b>Total Votes:</b> <%= category.votes %></p>
             <p><b>Current Leader:</b> <%= category.leader %></p>
+            <p><b>Total Votes:</b> <%= category.votes %></p>
         </div>
     </div>
 
@@ -74,32 +79,24 @@
 
 <h3>CONTESTANTS</h3>
 <button class="btn btn-primary my-2 my-sm-0" onclick="window.location.href = '/categories/<%= category.id %>/new-contestant'">ADD a CONTESTANT</button>
-<div class="card-container"> <!-- CONTENT CONTAINER -->
-
+<div class="contestant-container"> <!-- CONTENT CONTAINER -->
+    
+    <% for (i=0;i<category.contestants.length;i++) { %>
         <div class='category-card'>
-            <div>
-                <a href="/categories/<%= category.id %>">
-                    SPICY SWEET CHILI
-                </a>
-
+            
+            <div class="card-name">
+                <%= category.contestants[i].name %>
             </div>
             <div>
-                <a href="/categories/<%= category.id %>">
-                    <img class="category-img" src="<%= category.img %>"/>
-                </a>
+                <img class="category-img" src="<%= category.contestants[i].img %>"/>
             </div>
-            <div class="votes">
-                <%= category.votes %>
+            <div class="card-votes">
+                <%= category.contestants[i].votes %>
             </div>
         </div>
+    <% } %>
 
 </div> <!-- END of CARD CONTAINER -->
-
-    <% if(currentUser) { %>
-        <main>
-                UPDATE this when we want to link  <a href="/">USER-ONLY content</a>
-        </main>
-    <% } %>
 
 </div> <!-- END of CONTENT CONTAINER -->
 

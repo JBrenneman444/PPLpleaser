@@ -49,9 +49,7 @@
                     <a class="nav-link" href="/users/new">Register</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit">ADD a POLL</button>
-            </form>
+                <button class="btn btn-primary my-2 my-sm-0" onclick="window.location.href = '/categories/new'">ADD a POLL</button>            
             </div>
         </nav>
 
@@ -61,24 +59,22 @@
 
 <div class="content-container"> <!-- CONTENT CONTAINER -->
     
-    <h1>Edit a category:</h1>
+    <h1 class="chill-h1">Edit a category:</h1>
+    <a href="/categories/<%=category.id%>">BACK to PRODUCT</a><br/><br/>
 
     <% if(currentUser) { %>
         <form action="/categories/<%=category.id%>?_method=PUT" method="POST">
 
-            Name: <input type="text" name="name" value="<%=category.name%>"/><br/>
-            Image: <input style='width:325px;' type="text" name="img" value="<%=category.img%>"/><br/>
-            <img src=" <%= category.img %> "> <br/>
-            Total Votes: <input type="number" name="votes" value="<%=category.votes%>" min="0"/><br/>
+            Name: <input type="text" class="category-forms" name="name" value="<%=category.name%>"/><br/>
+            Image: <input type="text" class="category-forms" style='width:325px;' name="img" value="<%=category.img%>"/><br/>
+            <img style="width:400px; border:1px solid blue; margin-bottom:5px;" src=" <%= category.img %> "> <br/>
+            Total Votes: <input type="number" class="category-forms" name="votes" value="<%=category.votes%>" min="0"/><br/>
             <br/>
-            <input type="submit" name="" value="Submit Changes"/>
+            <button type="submit" class="btn btn-primary" id="form-submit" form="add-category" value="Submit">EDIT category</button>
         </form>
     <% } else { %>
         You must be <a href="javascript:document.getElementById('username').focus()">signed in</a> to edit a category.
     <% } %>
-    <p>
-        <a href="/categories/<%=category.id%>">BACK to PRODUCT</a>
-    </p>
 
 </div> <!-- END of CONTENT CONTAINER -->
 

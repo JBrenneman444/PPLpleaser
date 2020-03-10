@@ -64,9 +64,9 @@
     <h1>Add a contestant:</h1>
 
     <% if(currentUser) { %>
-        <form id="add-category" action="/categories" method="POST">
+        <form id="add-category" action="/categories/<%= category.id %>/new-contestant?_method=PUT" method="POST">
             Contestant Name: <input type="text" class="category-forms" name="name" /><br/>
-            Image URL: <input type="text" class="category-forms" name="img" /><br/>
+            Image URL: <input type="text" class="category-forms" name="img"/><br/>
             <button type="submit" class="btn btn-primary" id="form-submit" form="add-category" value="Submit">Add CONTESTANT</button>
         </form>   
     <% } else { %>
