@@ -72,7 +72,7 @@
 
     <div id="number2">
         <div class="category-info">
-                <img class="category-img" src="<%= category.img %>"/>
+                <img class="category-img-master" src="<%= category.img %>"/>
         </div>
     </div>
 </div>
@@ -95,7 +95,9 @@
             </div>
         <% if (currentUser) { %>
             <div class="vote-button">
-                <a href="">VOTE</a>
+                <form class="special-vote" action="/categories/<%= category.id %>/vote?_method=PUT" method="POST">
+                    <input type="submit" value="VOTE" />
+                </form>
             </div>
         <% } else { %>
             <!-- do nothing -->

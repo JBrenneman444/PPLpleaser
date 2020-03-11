@@ -29,5 +29,6 @@ Heroku Link: __________________________
 ## TODO / Unresolved Items
 - [X] Set up MVC
 - [X] Set up Authentication
+- [ ] trouble getting width of parent container to stay the same from INDEX to SHOW route
 - [ ] Set up VOTE Feature / PUT Route
 - [ ] Deploy on Heroku - make publicly accessible

@@ -51,29 +51,26 @@ router.get('/:id/new-contestant', (req, res)=>{
   });
 });
 
-// PUT Route for BUY BUTTON -- N O T  D O N E  Y E T  !!
-router.put('/:id/voted', (req, res) => {
+// PUT Route for VOTE BUTTON
+router.put('/:id/vote', (req, res) => {
   Category.findByIdAndUpdate(
-    req.params.id,
-    { $inc: { votes: 1}},
+    req.params.id, // CATEGORY id
+    { $inc: { "contestants.$[].votes" : 1}}, // update only particular contestants votes
     (err, updatedModel)=>{
       console.log(err)
     res.redirect(`/categories/${req.params.id}`)
   });
 });
 
-
 // UPDATE / PUT Route for CONTESTANTS
 router.put('/:id/new-contestant', (req, res)=>{
 
   // MONGOOSE COMMANDS
-  Category.findByIdAndUpdate(req.params.id, 
-        {
-          $push:
-        {
-          contestants: req.body
-        }
-      }, {new:true}, (err, updatedModel)=>{
+  Category.findByIdAndUpdate(
+    req.params.id, 
+    { $push: { contestants: req.body}},
+    {new:true},
+    (err, updatedModel) => {
         res.redirect(`/categories/${req.params.id}`)
       });
   });

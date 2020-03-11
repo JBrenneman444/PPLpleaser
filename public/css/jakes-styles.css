@@ -35,25 +35,44 @@ body {
     
 }
 
-.card-container {
+.card-container { /* FRONT PAGE container for categories */
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-content: space-between;
     background: rgb(229, 233, 238);
     padding-top: 20px;
     padding-bottom: 0px;
 }
 
-.contestant-container {
+.contestant-container { /* change to flex or none for pixel width*/
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-content: space-between;
     background: rgb(54, 54, 54);
     padding-top: 20px;
     padding-bottom: 0px;
     margin-top: 20px;
+}
+
+.category-card { /* individual card container */
+    width: 250px;
+    text-align: center;
+    color: blue;
+    border:1px solid blue;
+    margin-bottom:20px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.category-img {
+    /* OLD Settings */
+    width: 250px;
+    height: 250px;    
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
 }
 
 .card-name {
@@ -70,27 +89,39 @@ body {
     color:white;
 }
 
-.category-card {
-    width: 250px;
-    height: 300px;
-    background: white;
-    text-align: center;
-    color: blue;
-    border: 2px solid blue;
-    margin-bottom:20px;
-    object-fit: cover;
-    overflow: hidden;
+.vote-button {
+    background: red;
+    color: white;
 }
 
-.category-img {
+.vote-button > a {
+    color:white;
+}
+
+.vote-button:hover {
+    background: rgb(255, 81, 0);
+    color: white;
+}
+
+.vote-button:focus {
+    background: rgb(255, 166, 0);
+    color: white;
+}
+
+.vote-button:active {
+    background: rgb(255, 166, 0);
+    color: white;
+}
+
+.category-img-master {
     width: 250px;
     height: 250px;
     object-fit: cover;
     object-position: center;
     overflow: hidden;
-    border-top: 2px solid blue;
-    border-bottom: 2px solid blue;
+    border: 1px solid blue;
 }
+
 
 .category-info {
     height: 15vh;
@@ -99,8 +130,6 @@ body {
 
 .horizontal-container {
     display: flex;
-    flex-direction: row;
-    flex-flow: row;
     flex-wrap: wrap;
     /* justify-content: space-between; */
     height: 260px;
@@ -142,6 +171,22 @@ color: rgb(0, 123, 255);
 cursor: pointer;
 text-decoration: none;
 background-color: transparent;
+}
+
+
+.special-vote {
+    display:inline;
+}
+
+.special-vote > input[type=submit] {
+border: none;
+padding-right: 0.5rem;
+padding-left: 0.5rem;
+color: white;
+cursor: pointer;
+text-decoration: none;
+background-color: transparent;
+width:100%;
 }
 
 input[type=text], input[type=number], input[type=password] {
@@ -216,5 +261,20 @@ input[type=text], input[type=password] {
 @media (max-width: 767px) {
     .bigLogo {
         display:none;
+    }
+
+    .horizontal-container {
+        display: flex;
+        height:auto;
+        flex-wrap: wrap;
+        flex-direction: column;
+        flex-flow: column;
+        /* justify-content: space-between; */
+        margin-bottom: 40px;
+    }
+
+    .category-info {
+        height: auto;
+        margin-top: 0;
     }
 }
