@@ -5,7 +5,9 @@ const bcrypt = require('bcrypt');
 
 // takes to REGISTER page
 router.get('/new', (req, res) => {
-    res.render('users/new.ejs');
+    res.render('users/new.ejs', {
+        currentUser: req.session.currentUser
+    })
 });
 
 // POST CREATES new USER in DATABASE (REGISTERS a USER)

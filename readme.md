@@ -37,3 +37,4 @@ My goal for the design of PPLpleaser was to keep it simple/minimalistic. I have 
 - [X] Set up Authentication
 - [X] Deploy on Heroku - make publicly accessible
 - [ ] Set up VOTE Feature / PUT Route (currently updates ALL votes for each contestant)
+- [ ] Set up EJS Partials
