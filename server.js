@@ -55,34 +55,6 @@ app.get('/seed', async (req, res) => {
           name: {type: String, required: true },
           img: String,
           votes: Number
-      }, {
-          name: {type: String, required: true },
-          img: String,
-          votes: Number
-      }, {
-          name: {type: String, required: true },
-          img: String,
-          votes: Number
-      }, {
-          name: {type: String, required: true },
-          img: String,
-          votes: Number
-      }, {
-          name: {type: String, required: true },
-          img: String,
-          votes: Number
-      }, {
-          name: {type: String, required: true },
-          img: String,
-          votes: Number
-      }, {
-          name: {type: String, required: true },
-          img: String,
-          votes: Number
-      }, {
-          name: {type: String, required: true },
-          img: String,
-          votes: Number
       }
     ]
 

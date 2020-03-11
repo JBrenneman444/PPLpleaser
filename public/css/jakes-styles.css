@@ -16,8 +16,8 @@ body {
 
 .bigLogo {
     background: blue;
-    height: 400px; /* sets height of DIV */
-    line-height: 400px; /* sets line-height of TEXT */
+    height: 200px; /* sets height of DIV */
+    line-height: 200px; /* sets line-height of TEXT */
     text-align:center;
     color:white;
     font-size:75px;
