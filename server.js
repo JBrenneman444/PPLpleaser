@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express');
 const session = require('express-session');
 const methodOverride = require('method-override');
@@ -8,9 +10,7 @@ const db = mongoose.connection;
 // PORT -- Allows use of Heroku's port or local port
 const PORT = process.env.PORT || 3000;
 
-
 const Category = require("./models/categories.js");
-
 
 // MIDDLEWARE
 app.use(express.static('public'))
@@ -22,18 +22,18 @@ app.use(session({
   saveUninitialized: false
 }));
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/PPLpleaser'
+// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/PPLpleaser'
 // ^ might need to change to: mongodb://localhost:27017/PPLpleaser
 
 // MONGOOSE
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connection path: ', MONGODB_URI));
+db.on('connected', () => console.log('mongo connection path: ', process.env.MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 // open the connection to mongo
@@ -117,6 +117,6 @@ const categoriesController = require('./controllers/categories.js');
 app.use('/categories', categoriesController);
 
 // WEB SERVER
-app.listen(PORT, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log('listening...');
 });
