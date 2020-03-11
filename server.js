@@ -52,9 +52,9 @@ app.get('/seed', async (req, res) => {
   const newCategories =
     [
       {
-          name: {type: String, required: true },
-          img: String,
-          votes: Number
+          name: "stuff",
+          img: "https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg",
+          votes: 439
       }
     ]
 
