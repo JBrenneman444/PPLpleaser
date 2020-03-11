@@ -61,7 +61,8 @@
 
 <div class="content-container"> <!-- CONTENT CONTAINER -->
     
-    <h1>Add a contestant:</h1>
+    <h1 class="chill-h1">Add a contestant:</h1>
+    <p class="which-category">in <a class="this-category" href="/categories/<%= category.id %>"><%= category.name %></a></p>
 
     <% if(currentUser) { %>
         <form id="add-category" action="/categories/<%= category.id %>/new-contestant?_method=PUT" method="POST">

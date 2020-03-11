@@ -59,8 +59,8 @@
 
 <div class="content-container"> <!-- CONTENT CONTAINER -->
     
-    <h1 class="chill-h1">Edit a category:</h1>
-    <a href="/categories/<%=category.id%>">BACK to PRODUCT</a><br/><br/>
+    <h1 class="chill-h1">Edit <font class="this-category-h1"><%= category.name %></font></h1>
+    <a href="/categories/<%=category.id%>">BACK to <%= category.name %></a><br/><br/>
 
     <% if(currentUser) { %>
         <form action="/categories/<%=category.id%>?_method=PUT" method="POST">

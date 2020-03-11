@@ -22,9 +22,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/PPLpleaser'
-// ^ might need to change to: mongodb://localhost:27017/PPLpleaser
-
 // MONGOOSE
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,

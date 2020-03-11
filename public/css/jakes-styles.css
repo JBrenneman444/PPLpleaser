@@ -113,6 +113,21 @@ body {
     color: white;
 }
 
+.which-category {
+    font-size: x-large;
+}
+
+.this-category {
+    font-size: x-large;
+    color: blue;
+    font-weight: bold;
+}
+
+.this-category-h1 {
+    color: blue;
+    /* font-weight: bold; */
+}
+
 .category-img-master {
     width: 250px;
     height: 250px;
@@ -277,4 +292,23 @@ input[type=text], input[type=password] {
         height: auto;
         margin-top: 0;
     }
+
+    input.navformmargin-left {
+        display:block;
+        margin-left: 0px;
+    }
+    
+    input.navformmargin-right {
+        display:block;
+        margin-right: 0px;
+    }
+
+    .form-inline {
+        display:block;
+    }
+
+    .special-submit > input[type=submit] {
+        padding-left:0rem;
+    }
+
 }
