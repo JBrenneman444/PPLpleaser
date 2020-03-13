@@ -36,6 +36,7 @@ My goal for the design of PPLpleaser was to keep it simple/minimalistic. I have 
 - [X] Set up MVC
 - [X] Set up Authentication
 - [X] Deploy on Heroku - make publicly accessible
+- [ ] Set up WRONG password / user not found page using !foundUser
 - [ ] Set up VOTE Feature / PUT Route (currently updates ALL votes for each contestant)
 - [ ] Consider making SORTING features for main category page (for sorting categories)
 - [ ] Set up EJS Partials

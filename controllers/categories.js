@@ -53,8 +53,9 @@ router.get('/:id/new-contestant', (req, res)=>{
 
 // PUT Route for VOTE BUTTON
 router.put('/:id/vote', (req, res) => {
+  
   Category.findByIdAndUpdate(
-    req.params.id, // CATEGORY id
+    req.params.id,
     { $inc: { "contestants.$[].votes" : 1}}, // update only particular contestants votes
     (err, updatedModel)=>{
       console.log(err)
@@ -65,7 +66,6 @@ router.put('/:id/vote', (req, res) => {
 // UPDATE / PUT Route for CONTESTANTS
 router.put('/:id/new-contestant', (req, res)=>{
 
-  // MONGOOSE COMMANDS
   Category.findByIdAndUpdate(
     req.params.id, 
     { $push: { contestants: req.body}},
