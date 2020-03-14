@@ -73,8 +73,8 @@ if(req.body.img == ''){
 } else {
 // do nothing
 }
-    Category.findByIdAndUpdate(req.params.id, req.body, (err, updatedModel)=>{
-      res.redirect(`/categories/${req.params.id}`)
+    Category.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedModel)=>{
+      res.redirect('/')
     });
 });
   

@@ -58,14 +58,16 @@
     <a href="/categories/<%=category.id%>">BACK to <%= category.name %></a><br/><br/>
 
     <% if(currentUser) { %>
-        <form action="/categories/<%=category.id%>?_method=PUT" method="POST">
+        <form action="/categories/<%= category.id %>?_method=PUT" method="POST">
 
             Name: <input type="text" class="category-forms" name="name" value="<%=category.name%>"/><br/>
             Image: <input type="text" class="category-forms" style='width:325px;' name="img" value="<%=category.img%>"/><br/>
             <img style="width:400px; border:1px solid blue; margin-bottom:5px;" src=" <%= category.img %> "> <br/>
-            Total Votes: <input type="number" class="category-forms" name="votes" value="<%=category.votes%>" min="0"/><br/>
+            Total Votes: <input type="number" class="category-forms" name="totalVotes" value="<%=category.votes%>" min="0"/><br/>
             <br/>
-            <button type="submit" class="btn btn-primary" id="form-submit" form="add-category" value="Submit">EDIT category</button>
+            <button type="submit" class="btn btn-primary" value="Submit">EDIT category</button>
+<!-- DELETED id="form-submit" form="add-category"  -->
+
         </form>
     <% } else { %>
         You must be <a href="javascript:document.getElementById('username').focus()">signed in</a> to edit a category.
