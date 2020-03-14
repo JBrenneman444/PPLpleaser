@@ -48,6 +48,7 @@ app.get('/', (req, res)=>{
   });
 });
 
+// OPTIONAL SEED ROUTE
 app.get('/seed', async (req, res) => {
   const newCategories =
     [
@@ -75,8 +76,6 @@ app.get('/app', (req, res)=>{
   }
 });
 
-
-
 // SET UP to USE USERS.JS CONTROLLER
 const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
@@ -84,6 +83,8 @@ const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 const categoriesController = require('./controllers/categories.js');
 app.use('/categories', categoriesController);
+const contestantController = require('./controllers/contestants.js');
+app.use('/contestants', contestantController);
 
 // WEB SERVER
 app.listen(process.env.PORT, ()=>{

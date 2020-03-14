@@ -10,18 +10,26 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res)=>{
     User.findOne({ username: req.body.username },(err, foundUser) => {
-        if( bcrypt.compareSync(req.body.password, foundUser.password) ){
+        if (err) { 
+            console.log(err); 
+        } else if (!foundUser) {
+            console.log("user not found")
+            res.redirect('back'); // REDIRECTS to CURRENT PAGE
+        } else if ( bcrypt.compareSync(req.body.password, foundUser.password) ){
             req.session.currentUser = foundUser;
+            console.log("correct user and pass")
             res.redirect('back'); // REDIRECTS to CURRENT PAGE
         } else {
-            // do nothing - send error?
+            // have it say "WRONG PASSWORD"
+            console.log('wrong pass')
             res.redirect('back'); // REDIRECTS to CURRENT PAGE
         }
-    });
+    },
+);
 });
 
 router.delete('/', (req, res) => {
-    req.session.destroy(()=>{
+    req.session.destroy(()=>{ // ENDS the session (aka, Logs Out)
         res.redirect('back'); // REDIRECTS to CURRENT PAGE
     });
 })

@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/users.js');
 const bcrypt = require('bcrypt');
 
-// takes to REGISTER page
+// directs user to REGISTER page
 router.get('/new', (req, res) => {
     res.render('users/new.ejs', {
         currentUser: req.session.currentUser
