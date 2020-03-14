@@ -40,4 +40,5 @@ My goal for the design of PPLpleaser was to keep it simple/minimalistic. I have 
 - [X] Set up VOTE Feature / PUT Route (currently updates ALL votes for each contestant)
 - [ ] Change VOTE button to light blue / but red on hover
 - [ ] Consider making SORTING features for main category page (for sorting categories)
+- [ ] Have SORT by ALPHABETICAL LIST feature
 - [ ] Set up EJS Partials

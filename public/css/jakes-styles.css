@@ -90,7 +90,7 @@ body {
 }
 
 .vote-button {
-    background: red;
+    background:#00adff;
     color: white;
 }
 
@@ -99,8 +99,8 @@ body {
 }
 
 .vote-button:hover {
-    background: rgb(255, 81, 0);
-    color: white;
+    background: white;
+    color: blue;
 }
 
 .vote-button:focus {
@@ -220,6 +220,11 @@ input[type=text]:hover, input[type=number]:hover, input[type=password]:hover {
     border: 2px solid rgb(60, 173, 188);
 }
 
+.special-vote > input[type=submit]:hover {
+    color: blue;
+    font-weight: bold;
+}   
+
 .special-submit > input[type=submit]:hover {
     border: none;            
     padding-right: 0.5rem;
@@ -246,6 +251,17 @@ input[type=text]:active, input[type=number]:active, input[type=password]:active 
     border: 2px solid rgb(60, 173, 188);
 }
 
+.special-vote > input[type=submit]:focus {
+    background: blue;
+    color: white;
+    font-weight: bold;
+}   
+
+.special-vote > input[type=submit]:active {
+    background: blue;
+    color: white;
+    font-weight: bold;
+}   
 
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
