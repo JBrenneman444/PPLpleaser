@@ -66,32 +66,6 @@ router.get('/:id/edit', (req, res)=>{
     });
   });
 
-  
-// EDIT --- NEW-CONTESTANT
-router.get('/:id/new-contestant', (req, res)=>{
-  Category.findById(req.params.id, (err, foundCategory)=>{ //find the log
-      res.render('categories/new-contestant.ejs',
-      {
-        category: foundCategory,
-        currentUser: req.session.currentUser
-      }
-    );
-  });
-});
-
-
-// UPDATE / PUT Route for CONTESTANTS
-router.put('/:id/new-contestant', (req, res)=>{
-
-  Category.findByIdAndUpdate(
-    req.params.id, 
-    { $push: { contestants: req.body}},
-    {new:true},
-    (err, updatedModel) => {
-        res.redirect(`/categories/${req.params.id}`)
-      });
-  });
-
 // UPDATE / PUT Route for CATEGORIES
 router.put('/:id', (req, res)=>{
 if(req.body.img == ''){
@@ -104,10 +78,10 @@ if(req.body.img == ''){
     });
 });
   
-// SHOW
+// SHOW Category & Contestants
 router.get('/:id',(req,res)=>{
     Category.findById(req.params.id, (err, foundCategory) => {
-      Contestant.find({parentCategory: foundCategory}, (err, foundContestant) => {
+      Contestant.find({parentCategory: foundCategory.name}, (err, foundContestant) => {
         res.render("categories/show.ejs", {
           category: foundCategory,
           contestant: foundContestant,
@@ -116,21 +90,6 @@ router.get('/:id',(req,res)=>{
       });
     })
   })
-
-// // CHRIS' SHOW
-// router.get("/:id", (req, res) => {
-//     Ticket.findById(req.params.id, (err, foundTicket) => { // links founTicket
-//       User.findOne({username:foundTicket.username}, (err, foundUser) => { // to here
-//           // console.log(foundUser)
-//           res.render("show.ejs", {
-//             ticket: foundTicket,
-//              metaTitle: "Ticket Page",
-//               currentUser: req.session.currentUser,
-//                id: req.params.id,
-//                 userid: foundUser.id});
-//       })
-//     });
-//   })
 
 // DELETE
 router.delete('/:id', (req, res)=>{

@@ -75,21 +75,21 @@
 <button class="btn btn-primary my-2 my-sm-0" onclick="window.location.href = '/categories/<%= category.id %>/new-contestant'">ADD a CONTESTANT</button>
 <div class="contestant-container"> <!-- CONTENT CONTAINER -->
     
-    <% for (i=0;i<category.length;i++) { %>
+    <% for (i=0;i<contestant.length;i++) { %>
         <div class='category-card'>
             
             <div class="card-name">
-                <%= category[i].name %>
+                <%= contestant[i].name %>
             </div>
             <div>
-                <img class="category-img" src="<%= category[i].img %>"/>
+                <img class="category-img" src="<%= contestant[i].img %>"/>
             </div>
             <div class="card-votes">
-                <%= category[i].votes %>
+                <%= contestant[i].votes %>
             </div>
         <% if (currentUser) { %>
             <div class="vote-button">
-                <form class="special-vote" action="/categories/<%= category.id %>/vote?_method=PUT" method="POST">
+                <form class="special-vote" action="/contestants/<%= contestant[i].id %>/vote?_method=PUT" method="POST">
                     <input type="submit" value="VOTE" />
                 </form>
             </div>
