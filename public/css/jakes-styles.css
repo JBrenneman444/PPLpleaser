@@ -94,6 +94,11 @@ body {
     color: white;
 }
 
+.vote-button-disabled {
+    background:#5a5a5a;
+    color: rgb(175, 175, 175);
+}
+
 .vote-button > a {
     color:white;
 }

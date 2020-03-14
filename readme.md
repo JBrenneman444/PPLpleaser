@@ -38,7 +38,8 @@ My goal for the design of PPLpleaser was to keep it simple/minimalistic. I have 
 - [X] Deploy on Heroku - make publicly accessible
 - [X] Set up WRONG password / user not found handling using !foundUser
 - [X] Set up VOTE Feature / PUT Route (currently updates ALL votes for each contestant)
-- [ ] Change VOTE button to light blue / but red on hover
+- [X] Change VOTE button to light blue / but red on hover
+- [ ] Allow only ONE vote (use Boolean?)
 - [ ] Consider making SORTING features for main category page (for sorting categories)
 - [ ] Have SORT by ALPHABETICAL LIST feature
 - [ ] Set up EJS Partials
