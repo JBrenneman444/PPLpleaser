@@ -14,7 +14,7 @@ Heroku Link: https://pplpleaser.herokuapp.com/
 ## Approach Taken
 My goal for PPLpleaser was for there to be categories that users could vote on to see which member (ie. contestant) of that category was the best contestant of that particular category.
 
-While I was able to set up a functional voting PUT route, it updated the votes value for EACH contestant of that particular category, and I wasn't able to figure out how to have it update the value for each individual contestant.
+While I was able to set up a functional voting PUT route, it updated the votes value for EACH contestant of that particular category, and it took me a while to figure out how to have it update the value for each individual contestant.
 
 ### Design
 My goal for the design of PPLpleaser was to keep it simple/minimalistic. I have a tendency with CSS to love to try all the wild effects and colors, etc. I wanted to challenge myself this time to keep it practical and focus more on the smooth use of the product.
